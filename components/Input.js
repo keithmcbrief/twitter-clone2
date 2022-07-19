@@ -73,11 +73,11 @@ function Input() {
         loading && "opacity-60"
       }`}
     >
-      <img
+      {/* <img
         src={session.user.image}
         alt=""
         className="h-11 w-11 rounded-full mr-4"
-      />
+      /> */}
       <div className="divide-y divide-gray-700 w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea

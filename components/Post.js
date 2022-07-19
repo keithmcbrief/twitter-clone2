@@ -46,7 +46,7 @@ function Post({ id, post, postPage }) {
         ),
         (snapshot) => setComments(snapshot.docs)
       ),
-    [db, id]
+    // [db, id]
   );
 
   useEffect(
@@ -54,13 +54,13 @@ function Post({ id, post, postPage }) {
       onSnapshot(collection(db, "posts", id, "likes"), (snapshot) =>
         setLikes(snapshot.docs)
       ),
-    [db, id]
+    // [db, id]
   );
 
   useEffect(
     () =>
       setLiked(likes.findIndex((like) => like.id === session?.user.uid) !== -1),
-    [likes]
+      [likes, session.user.uid]
   );
 
   const likePost = async () => {
@@ -79,22 +79,22 @@ function Post({ id, post, postPage }) {
         className="p-3 flex cursor-pointer border-b border-gray-700"
         onClick={() => router.push(`/${id}`)}
       >
-        {!postPage && (
+        {/* {!postPage && (
           <img
             src={post?.userImg}
             alt=""
             className="h-11 w-11 rounded-full mr-4"
           />
-        )}
+        )} */}
         <div className="flex flex-col space-y-2 w-full">
           <div className={`flex ${!postPage && "justify-between"}`}>
-            {postPage && (
+            {/* {postPage && (
               <img
                 src={post?.userImg}
                 alt="Profile Pic"
                 className="h-11 w-11 rounded-full mr-4"
               />
-            )}
+            )} */}
             <div className="text-[#6e767d]">
               <div className="inline-block group">
                 <h4
@@ -130,11 +130,11 @@ function Post({ id, post, postPage }) {
               {post?.text}
             </p>
           )}
-          <img
+          {/* <img
             className="rounded-2xl max-h-[700px] object-cover mr-2"
             src={post?.image}
             alt=""
-          />
+          /> */}
           <div
             className={`text-[#6e767d] flex justify-between w-10/12 ${
               postPage && "mx-auto"

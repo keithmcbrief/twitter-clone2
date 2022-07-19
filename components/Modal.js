@@ -134,11 +134,11 @@ function Modal() {
                   </div>
 
                   <div className="mt-7 flex space-x-3 w-full">
-                    <img
+                    {/* <img
                       src={session.user.image}
                       alt=""
                       className="h-11 w-11 rounded-full"
-                    />
+                    /> */}
                     <div className="flex-grow mt-2">
                       <textarea
                         value={comment}
