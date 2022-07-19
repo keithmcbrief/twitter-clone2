@@ -18,7 +18,8 @@ function Sidebar() {
   const { data: session } = useSession();
 
   return (
-    <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full">
+    <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px]
+    xl:ml-[220px] p-2 fixed h-full">
       <div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
         <Image alt="" src="https://rb.gy/ogau5a" width={30} height={30} />
       </div>
@@ -44,6 +45,17 @@ function Sidebar() {
           alt=""
           className="h-10 w-10 rounded-full xl:mr-2.5"
         /> */}
+
+        <div className="w-10 h-10 mr-4 mt-1">
+          <Image
+            src={session.user.image}
+            alt=""
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
+        </div>
+
         <div className="hidden xl:inline leading-5">
           <h4 className="font-bold">{session.user.name}</h4>
           <p className="text-[#6e767d]">@{session.user.tag}</p>

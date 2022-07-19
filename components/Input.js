@@ -69,7 +69,7 @@ function Input() {
 
   return (
     <div
-      className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${
+      className={`border-b border-gray-700 p-3 flex space-x-3 scrollbar-hide ${
         loading && "opacity-60"
       }`}
     >
@@ -78,6 +78,14 @@ function Input() {
         alt=""
         className="h-11 w-11 rounded-full mr-4"
       /> */}
+      <div className="w-14 h-14 mr-2 mt-[-7px] ml-1">
+      <Image
+      src={session.user.image}
+      alt="" 
+      width={100}
+      height={100} 
+      className="rounded-full " />
+      </div>
       <div className="divide-y divide-gray-700 w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea
