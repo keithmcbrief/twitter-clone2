@@ -5,7 +5,7 @@ import Image from "next/image";
 function Widgets({ trendingResults, followResults }) {
   return (
     <div
-      className="hidden lg:inline ml-8
+      className="hidden lg:inline ml-8 md:mr-8
     xl:w-[280px] py-1 space-y-5"
     >
       <div className="sticky top-0 py-1.5 bg-black z-50 max-w-[375px] xl:w-[2000px]">

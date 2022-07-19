@@ -34,8 +34,8 @@ function Feed() {
 
   return (
     <div
-      className="text-white flex-grow w-[1800px] border-l border-r border-gray-700
-     sm:ml-[73px] xl:ml-[595px]"
+      className="text-white flex-grow  border-l border-r border-gray-700
+     sm:ml-[73px] xl:ml-[400px] xl:max-w-[500px]"
     >
       <div
         className="text-[#d9d9d9] flex items-center sm:justify-between
