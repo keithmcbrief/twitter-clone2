@@ -11,12 +11,11 @@ import Image from "next/image"
 function Comment({ comment }) {
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
-      {/* <img
-        src={comment.userImg}
+      <img
+        src={comment?.userImg}
         alt=""
         className="h-11 w-11 rounded-full mr-4"
-      /> */}
-      
+      />
       <div className="flex flex-col space-y-2 w-full">
         <div className="flex justify-between">
           <div className="text-[#6e767d]">
@@ -32,7 +31,7 @@ function Comment({ comment }) {
             <span className="hover:underline text-sm sm:text-[15px]">
               <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
             </span>
-            <p className="text-[#d9d9d9] mt-0.5 max-w-lg scrollbar-hide text-[15px] sm:text-base">
+            <p className="text-[#d9d9d9] mt-0.5 max-w-lg text-[15px] sm:text-base">
               {comment?.comment}
             </p>
           </div>

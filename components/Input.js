@@ -15,8 +15,9 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
+import dynamic from "next/dynamic";
+
 
 function Input() {
   const { data: session } = useSession();
@@ -26,8 +27,6 @@ function Input() {
   const filePickerRef = useRef(null);
 
   const sendPost = async () => {
-    console.log(session);
-
     if (loading) return;
     setLoading(true);
 
@@ -56,10 +55,10 @@ function Input() {
     setSelectedFile(null);
   };
 
-  const addImageToPost = (event) => {
+  const addImageToPost = (e) => {
     const reader = new FileReader();
-    if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]);
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
     }
 
     reader.onload = (readerEvent) => {
@@ -67,25 +66,19 @@ function Input() {
     };
   };
 
+
   return (
     <div
       className={`border-b border-gray-700 p-3 flex space-x-3 scrollbar-hide ${
         loading && "opacity-60"
       }`}
     >
-      {/* <img
+      <img
         src={session.user.image}
         alt=""
-        className="h-11 w-11 rounded-full mr-4"
-      /> */}
-      <div className="w-14 h-14 mr-2 mt-[-7px] ml-1">
-      <Image
-      src={session.user.image}
-      alt="" 
-      width={100}
-      height={100} 
-      className="rounded-full " />
-      </div>
+        className="h-11 w-11 rounded-full cursor-pointer"
+        onClick={signOut}
+      />
       <div className="divide-y divide-gray-700 w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea
@@ -104,7 +97,7 @@ function Input() {
               >
                 <XIcon className="text-white h-5" />
               </div>
-              <Image
+              <img
                 src={selectedFile}
                 alt=""
                 className="rounded-2xl max-h-80 object-contain"
@@ -139,6 +132,8 @@ function Input() {
               <div className="icon">
                 <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
               </div>
+
+             
             </div>
             <button
               className="bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default"

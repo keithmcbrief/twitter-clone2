@@ -5,10 +5,10 @@ import Image from "next/image";
 function Widgets({ trendingResults, followResults }) {
   return (
     <div
-      className="hidden lg:inline ml-8 md:mr-8
-    xl:w-[280px] py-1 space-y-5"
+      className="hidden lg:inline ml-8 mr-8
+    xl:w-[280px] xl:mr-8 py-1 space-y-5"
     >
-      <div className="sticky top-0 py-1.5 bg-black z-50 max-w-[375px] xl:w-[2000px]">
+      <div className="sticky top-0 py-1.5 bg-black z-50 xl:max-w-[400px]">
         <div className="flex items-center bg-[#202327] p-3 rounded-full relative">
           <SearchIcon className="text-gray-500 h-5 z-50" />
           <input
@@ -24,7 +24,7 @@ function Widgets({ trendingResults, followResults }) {
 
       <div
         className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl 
-        max-w-[375px] xl:w-[2000px]"
+        max-w-[375px] xl:max-w-[400px]"
       >
         <h4 className="font-bold text-xl px-4">Whats happening</h4>
         {trendingResults.map((result, index) => (
@@ -39,7 +39,7 @@ function Widgets({ trendingResults, followResults }) {
         </button>
       </div>
 
-      <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl max-w-[375px] xl:w-[2000px]">
+      <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl xl:max-w-[400px]">
         <h4 className="font-bold text-xl px-4">Who to follow</h4>
         {followResults.map((result, index) => (
           <div
